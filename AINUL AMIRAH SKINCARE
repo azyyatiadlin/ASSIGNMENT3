@@ -1,0 +1,424 @@
+package Assignment3;
+import java.util.Scanner;
+public class test2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner (System.in);
+		double price_charge = 20;
+		double amount, a2, a3, a4, a5, a6, a7, a8;
+		double price, p1, p2, p3, p4, p5, p6, p7, p8;
+		double finalprice, finalprice2; 
+		double total,t1, t2, t3, t4, t5, t6, t7, t8;
+		double size1, size2, size3, size4;
+		char pricelist, ans;
+		double pricee [] = {30,25,35,45,40,60};
+		
+System.out.println("\n_____________________________Welcome to The Ordinary website, Your House of beauty!_____________________________");
+System.out.println();
+
+System.out.println("                                                CUSTOMERS DETAILS             ");
+System.out.println("                                ----------------------------------------------");
+System.out.println();
+System.out.print("                                    Enter your name : ");
+String name = sc.nextLine();
+System.out.print("                                    Enter your email : ");
+String email = sc.nextLine();
+System.out.print("                                    Enter your phone number : ");
+String number = sc.nextLine();
+System.out.print("                                    Enter your address : ");
+String address = sc.nextLine();
+System.out.println();
+		
+System.out.println("*********************************************************************************************");
+System.out.println("*             Welcome to The Ordinary House of Beauty, " + name    +"!                                *");
+System.out.println("*___________________________________________________________________________________________*");
+System.out.println("*                                                                                           *");
+System.out.println("*Dear " + name    + ", Before you proceed,                                                             *");
+System.out.println("*We would like to inform that                                                               *");
+System.out.println("*You can't buy more than 1 serum to experience free shipping!                               *");
+System.out.println("*And you can add only two ingredient into your Serum.                                       *");
+System.out.println("*You will be charge RM20 if you add more than two ingredients into you Serum                *");
+System.out.println("*********************************************************************************************");
+System.out.println();
+System.out.print("Would You like to see the pricelist? [Y/N] :  ");
+System.out.println();
+pricelist= sc.next().charAt(0);
+
+switch (pricelist) {
+case 'N' :
+case 'n' :
+	System.out.println("\nOppss! You have cancel your order and return to homepage!"); 
+	System.out.println("\nSee You next time," + name    + "!"); break;
+
+case 'Y' : 
+case 'y' :
+	
+	System.out.println("\nWhat a great Choice! Here is the ingredient!");
+	System.out.println();
+	
+	priceList();
+	
+	
+System.out.println("\nHere is the ingredients that you can add into your Serum ");
+System.out.println("\nHappy Shopping!");
+System.out.println();
+
+
+System.out.println("\nNow please select your order size " + name );
+System.out.println("\nYou can choose between 30ml or 60ml");
+System.out.print("\nSize : "); 
+System.out.println(); 
+size1 = sc.nextDouble();
+
+while (size1 != 30 && size1 != 60) {
+	System.out.println("Sorry! The chosen size is unavailable");
+	System.out.print("Please select your order size : ");
+	size1 = sc.nextDouble();
+}
+
+if(size1 == 30) {		
+	System.out.println("\nGreat! You can choose 30ml as your size of Serum's bottle");
+	System.out.println("\nNow choose your ingredient");
+	System.out.println(); 
+	System.out.print("\nEnter first ingredient : ");
+	String ingredient1 = sc.next();
+	System.out.print("\nEnter the quantity of " + ingredient1 + " : " );
+	amount = sc.nextDouble();
+	total = (amount*pricee[0]);
+
+	System.out.print("\nEnter second ingredient : ");
+	String ingredient2 = sc.next();
+	System.out.print("\nEnter the quantity of " + ingredient2 + " : " );
+	a2 = sc.nextDouble();
+	t1 = (a2*pricee[1]);
+
+   System.out.print("\nDo you want to add third ingredient? [Y/N]: ");
+   ans = sc.next().charAt(0);
+   switch (ans) {
+   case 'Y' :
+   case 'y' :
+	   System.out.printf("\nEnter third ingredient : ");
+	   String ingredient3 = sc.next();
+	   System.out.print("\nEnter the quantity of " + ingredient3 + " : " );
+		a3 = sc.nextDouble();
+		t3 = (a3*pricee[2]);
+		System.out.println();
+		System.out.println("_______________________________________________________________________________________________");
+		System.out.println();
+		System.out.print("                             Your price for your Custom Serum is RM" + (total + t1 + t3 + price_charge));
+		System.out.println();
+		System.out.println("________________________________________________________________________________________________");
+		System.out.println();
+		System.out.println();
+		System.out.print("\nYou cant buy more than 1 serum, Continue with your payment. ");
+		System.out.print("\nEnter your payment Method :  ");
+		String payment = sc.next();
+		System.out.println("\nDelivery : Free Delivery ");
+		System.out.println();
+		System.out.println();
+		
+		greetings();
+					break;
+		
+   case 'N' :
+   case 'n' :
+	   System.out.println("________________________________________________________________________________________________");
+		System.out.println();  
+		System.out.print("                        Your price for your Custom Serum is RM" + (total + t1 ));
+		System.out.println(); 
+		System.out.println("_______________________________________________________________________________________________");
+		System.out.println();
+		System.out.println();
+		System.out.print("\nYou cant buy more than 1 serum, Continue with your payment. ");
+		System.out.print("\nEnter your payment Method :  ");
+		String payment2 = sc.next();
+		System.out.println("\nDelivery : Free Delivery ");
+		System.out.println();
+		System.out.println();
+		
+		greetings();
+		break;
+}
+}
+ 
+   else if (size1 ==60) {
+		System.out.println("\nGreat! You can choose 60ml as your size of Serum's bottle");
+		System.out.println("\nNow choose your ingredient");
+	   System.out.print("\nEnter first ingredient : ");
+		String ingredient4 = sc.next();
+		System.out.print("\nEnter the quantity of " + ingredient4 + " : " );
+		a4 = sc.nextDouble();
+		t4 = (a4*pricee[5]);
+
+		System.out.print("\nEnter second ingredient : ");
+		String ingredient5 = sc.next();
+		System.out.print("\nEnter the quantity of " + ingredient5 + " : " );
+		a5 = sc.nextDouble();
+		t5 = ((a5*pricee[5]));
+
+	   System.out.print("\nDo you want to add third ingredient? [Y/N]: ");
+	   ans = sc.next().charAt(0);
+	   switch (ans) {
+	   case 'Y' :
+	   case 'y' :
+		   System.out.printf("\nEnter third ingredient : ");
+		   String ingredient6 = sc.next();
+		   System.out.print("\nEnter the quantity of " + ingredient6 + " : " );
+			a6 = sc.nextDouble();
+		    t6 = ((a6*pricee[3]));
+			System.out.println();
+			System.out.println("_______________________________________________________________________________________________");
+			System.out.println();
+			System.out.print("                    Your  price for your Custom Serum is RM" + (t4 + t5 + t6 + price_charge ));
+			System.out.println();
+			System.out.println("_______________________________________________________________________________________________"); 
+			System.out.println();
+			System.out.println();
+			System.out.print("\nYou cant buy more than 1 serum, Continue with your payment. ");
+			System.out.print("\nEnter your payment Method :  ");
+			String payment = sc.next();
+			System.out.println("\nDelivery : Free Delivery ");
+			System.out.println();
+			System.out.println();
+			
+			greetings();
+			
+			break;
+			
+	   case 'N' :
+	   case 'n' :
+		   System.out.println("_______________________________________________________________________________________________");
+			System.out.println();  
+			System.out.print("                        Your  price for your Custom Serum is RM" + (t4 + t5));
+			System.out.println(); 
+			System.out.println("_______________________________________________________________________________________________");
+			System.out.println();
+			System.out.println();
+			System.out.print("\nYou cant buy more than 1 serum, Continue with your payment. ");
+			System.out.print("\nEnter your payment Method :  ");
+			String payment1 = sc.next();
+			System.out.println("\nDelivery : Free Delivery ");
+			System.out.println();
+			System.out.println();
+			
+			greetings();
+			
+			break;
+}	   
+}
+}
+}
+	
+
+public static void greetings() {
+	System.out.println("    ************************************************************************************");
+	System.out.println("    *                                                                                  *");
+	System.out.println("    *                       Thank You for purchasing from us!                          *");
+	System.out.println("    *          We will send the receipt and the tracking number via email!             *");
+	System.out.println("    *                You will get your order after 14days of working                   *");
+	System.out.println("    *                                                                                  *");
+	System.out.println("    ************************************************************************************");
+
+	
+}
+
+
+public static void priceList() {
+	System.out.println("\n                    Price-List for 30ml Serum :");
+	System.out.println();
+	System.out.println("            ********************************************************************");
+	System.out.println("            *                                                                  *");
+	System.out.println("            *            INGREDIENTS           QUANTITY       PRICE            *");
+	System.out.println("            *__________________________________________________________________*");
+	System.out.println("            *                                                                  *");
+	System.out.println("            *          Niancinamide 10%           1             30             *");
+	System.out.println("            *          Zinc 1%                    1             25             *");
+	System.out.println("            *          Alpha Arbutin 2%           1             45             *");
+	System.out.println("            *          Beta Hydroxy 2%            1             35             *");
+	System.out.println("            *          Hyalucronic Acid 2%        1             30             *");
+	System.out.println("            *          Alpha Hydroxy Acid 30%     1             35             *");
+	System.out.println("            *                                                                  *");
+	System.out.println("            ********************************************************************");
+	System.out.println();
+	System.out.println();
+	System.out.println("\n                             Price-List for 60ml Serum :");
+	System.out.println();
+	System.out.println("            ********************************************************************");
+	System.out.println("            *                                                                  *");
+	System.out.println("            *            INGREDIENTS           QUANTITY       PRICE            *");
+	System.out.println("            *__________________________________________________________________*");
+	System.out.println("            *                                                                  *");
+	System.out.println("            *          Niancinamide 14%           1             45             *");
+	System.out.println("            *          Zinc 5%                    1             40             *");
+	System.out.println("            *          Alpha Arbutin 6%           1             60             *");
+	System.out.println("            *          Beta Hydroxy 6%            1             60             *");
+	System.out.println("            *          Hyalucronic Acid 6%        1             45             *");
+	System.out.println("            *          Alpha Hydroxy Acid 34%     1             60             *");
+	System.out.println("            *                                                                  *");
+	System.out.println("            ********************************************************************");
+	System.out.println(); 
+	
+}
+	}
+
+
+
+
+OUTPUT : 
+
+
+IF NOT INTERESTED
+
+
+_____________________________Welcome to The Ordinary website, Your House of beauty!_____________________________
+
+                                                CUSTOMERS DETAILS             
+                                ----------------------------------------------
+
+                                    Enter your name : MIRA
+                                    Enter your email : qnamiyaa88@gmail.com
+                                    Enter your phone number : 01234567654
+                                    Enter your address : no 40 jalan abg sulaihi 986900 kapit
+
+*********************************************************************************************
+*             Welcome to The Ordinary House of Beauty, MIRA!                                *
+*___________________________________________________________________________________________*
+*                                                                                           *
+*Dear MIRA, Before you proceed,                                                             *
+*We would like to inform that                                                               *
+*You can't buy more than 1 serum to experience free shipping!                               *
+*And you can add only two ingredient into your Serum.                                       *
+*You will be charge RM20 if you add more than two ingredients into you Serum                *
+*********************************************************************************************
+
+Would You like to see the pricelist? [Y/N] :  
+n
+
+Oppss! You have cancel your order and return to homepage!
+
+See You next time,MIRA!
+
+
+
+
+if interested :
+
+
+
+_____________________________Welcome to The Ordinary website, Your House of beauty!_____________________________
+
+                                                CUSTOMERS DETAILS             
+                                ----------------------------------------------
+
+                                    Enter your name : MIRA
+                                    Enter your email : qnamiyaa88@gmail.com
+                                    Enter your phone number : 01234567654
+                                    Enter your address : no 40 jalan abg sulaihi 986900 kapit
+
+*********************************************************************************************
+*             Welcome to The Ordinary House of Beauty, !                                *
+*___________________________________________________________________________________________*
+*                                                                                           *
+*Dear , Before you proceed,                                                             *
+*We would like to inform that                                                               *
+*You can't buy more than 1 serum to experience free shipping!                               *
+*And you can add only two ingredient into your Serum.                                       *
+*You will be charge RM20 if you add more than two ingredients into you Serum                *
+*********************************************************************************************
+
+Would You like to see the pricelist? [Y/N] :  
+y
+
+What a great Choice! Here is the ingredient!
+
+
+                    Price-List for 30ml Serum :
+
+            ********************************************************************
+            *                                                                  *
+            *            INGREDIENTS           QUANTITY       PRICE            *
+            *__________________________________________________________________*
+            *                                                                  *
+            *          Niancinamide 10%           1             30             *
+            *          Zinc 1%                    1             25             *
+            *          Alpha Arbutin 2%           1             45             *
+            *          Beta Hydroxy 2%            1             35             *
+            *          Hyalucronic Acid 2%        1             30             *
+            *          Alpha Hydroxy Acid 30%     1             35             *
+            *                                                                  *
+            ********************************************************************
+
+
+
+                             Price-List for 60ml Serum :
+
+            ********************************************************************
+            *                                                                  *
+            *            INGREDIENTS           QUANTITY       PRICE            *
+            *__________________________________________________________________*
+            *                                                                  *
+            *          Niancinamide 14%           1             45             *
+            *          Zinc 5%                    1             40             *
+            *          Alpha Arbutin 6%           1             60             *
+            *          Beta Hydroxy 6%            1             60             *
+            *          Hyalucronic Acid 6%        1             45             *
+            *          Alpha Hydroxy Acid 34%     1             60             *
+            *                                                                  *
+            ********************************************************************
+
+
+Here is the ingredients that you can add into your Serum 
+
+Happy Shopping!
+
+
+Now please select your order size 
+
+You can choose between 30ml or 60ml
+
+Size : 
+50
+Sorry! The chosen size is unavailable
+Please select your order size : 30
+
+Great! You can choose 30ml as your size of Serum's bottle
+
+Now choose your ingredient
+
+
+Enter first ingredient : zinc
+
+Enter the quantity of zinc : 3
+
+Enter second ingredient : niancinamide
+
+Enter the quantity of niancinamide : 3
+
+Do you want to add third ingredient? [Y/N]: y
+
+Enter third ingredient : aha
+
+Enter the quantity of aha : 4
+
+_______________________________________________________________________________________________
+
+                             Your price for your Custom Serum is RM325.0
+________________________________________________________________________________________________
+
+
+
+You cant buy more than 1 serum, Continue with your payment. 
+Enter your payment Method :  online transfer
+
+Delivery : Free Delivery 
+
+
+    ************************************************************************************
+    *                                                                                  *
+    *                       Thank You for purchasing from us!                          *
+    *          We will send the receipt and the tracking number via email!             *
+    *                You will get your order after 14days of working                   *
+    *                                                                                  *
+    ************************************************************************************
+
