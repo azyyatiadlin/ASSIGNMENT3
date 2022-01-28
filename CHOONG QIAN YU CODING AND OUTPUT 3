@@ -1,0 +1,352 @@
+Coding:
+package assignment3;
+
+import java.util.Arrays;
+import java.util.Scanner;
+
+public class Assignment3 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		System.out.println("National Cancer Society Malaysia (NCSM) had organized a campaign recently");
+		System.out.println("");
+		
+		System.out.println("This campaign is to raise public awareness on the prevention, screening and early detection of cancer through education and raising funds for the patients.");
+		
+		System.out.println("MINI salon had organized this hair donation event to support the campaign organized by NCSM and to help patients that are suffering from cancer!"); 
+		System.out.println("");
+		
+		System.out.println("The public is welcome to take part in this event to show us your support!");
+		System.out.println("");
+		System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+		
+		interest(0);
+		
+		payment();
+		
+		seatAllocation();
+		
+		calculation(37,25,11);
+		
+	}
+	
+	public static void interest(int join) {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("If you are interested to join our event, please enter 1" );
+		System.out.println("If you are not interested, please enter 2.");
+		System.out.println("Are you interested to join?");
+		join = sc.nextInt();
+		
+		if(join == 1) {
+			inputDetails();
+		}
+		else {
+			System.out.println("Thanks for your concern, hope to see you again next time!");
+		}
+		
+	}
+	
+	public static void inputDetails() {
+		Scanner sc=new Scanner(System.in);
+		System.out.println("");
+		System.out.println("Thanks for your participation!");
+		System.out.println("");
+		System.out.println("You have to fill in your details for the registration purpose in this event.");
+		System.out.println("");
+		
+		System.out.println("1. Please enter your name: ");
+		String name = sc.nextLine();
+		
+		System.out.println("2. Please enter your NRIC: ");
+		String ic = sc.next();
+		
+		System.out.println("3. Please enter your contact number: ");
+		String num = sc.next();
+		
+		System.out.println("4. Please enter your age: ");
+		int age = sc.nextInt();
+		
+		System.out.println("5. Please enter your gender: ");
+		String gender = sc.next();
+
+		System.out.println("=========================================================================");
+		System.out.println("=========================PERSONAL DETAILS================================");
+		System.out.println("=========================================================================");
+		System.out.println("Name 	       : "+ name);
+		System.out.println("NRIC 	       : "+ ic);
+		System.out.println("Contact number : "+ num);
+		System.out.println("Age            : "+ age);
+		System.out.println("Gender 	       : "+ gender);
+		System.out.println("=========================================================================");
+		System.out.println("=========================================================================");
+		
+		fees(age,gender,name);
+		
+	}
+	
+	public static void fees(int age, String gender, String name) {
+		System.out.println("");
+		System.out.println("For your information, ");
+	    System.out.println("We will collect an amount of fees from participant according to their category in order to raise fund for the patient in need.");
+		System.out.println("For each participant, the event organizer, MINI salon will donate extra RM 5 to NCSM to support their campaign.");
+		System.out.println("");
+		
+		if(gender.equals("female"))
+		{
+			if (age <= 12) 
+			{
+				System.out.println("Hi, "+ name + ". Your fee is RM 5.");
+			}
+			else
+			{
+				System.out.println("Hi, Miss/Mrs " + name + ". Your fee is RM 10.");
+			}
+		}
+		else 
+		{
+			if (age <= 12) 
+			{
+				System.out.println("Hi, "+ name + ". Your fee is RM 5.");
+			}
+			else
+			{
+				System.out.println("Hi, Mr " + name + ". Your fee is RM 7.");
+			}
+		}
+			
+	}
+
+	public static void payment() {
+		Scanner sc =new Scanner(System.in);
+	
+		System.out.println("Please select your payment method: ");
+		System.out.println("1 - cash payment ");
+		System.out.println("2 - online transfer payment");
+		int pay = sc.nextInt();
+		
+		if(pay == 1)
+		{
+			System.out.println("You have selected the cash payment method!");
+			System.out.println("Please move to the cashier counter that is beside the entrance to complete your payment.");
+			System.out.println("Thanks for your support!");
+		}
+		else
+		{
+			System.out.println("You have selected the online transfer payment method!");
+			System.out.println("");
+			System.out.println("The details of the receiver bank account are as below: ");
+			System.out.println("");
+			System.out.println("		     Maybank						   ");
+			System.out.println("                    MINI salon                         ");
+			System.out.println("                   173678460739                        ");
+			System.out.println("  Please type on the reference with \"Hair Donation\"  ");
+			System.out.println("");
+			System.out.println("Thanks for your support!");
+		}
+		
+	}
+	
+	public static void seatAllocation() {
+		System.out.println("");
+		System.out.println("**********************************************************************************************************************************************");
+		System.out.println("**************************************************************SEAT ALLOCATION*****************************************************************");
+		System.out.println("**********************************************************************************************************************************************");
+		
+		for(int i=8; i>=0; i--) 
+		{
+			
+			if(i<=8 && i>0) {
+				System.out.println("Your seat is available!");
+				System.out.println("Please move to seat "+i);
+				System.out.println("");
+			}
+			else
+				System.out.println("Sorry to inform you that the seats are currently full, please be patient and wait for a while!"+"\nThanks for your understanding and sorry for the inconvenience caused!");
+			
+		}
+	}
+
+	public static void calculation(int a, int b, int c) { //a=female,b=male,c=kids
+		Scanner sc=new Scanner (System.in);
+		double a1 = a * 10;
+		double b1 = b * 7;
+		double c1 = c * 5;
+		int d = a + b + c;
+		double d1 = d * 5;
+		double sum = a1+ b1 + c1 + d1;
+		double cash,online;
+		System.out.println("");
+		System.out.println("**********************************************************************************************************************************************");
+		System.out.println("**************************************************************CALCULATION*********************************************************************");
+		System.out.println("**********************************************************************************************************************************************");
+		System.out.println("The number of participant are: ");
+		System.out.println("Female participants - " + a);
+		System.out.println("Male participants - " + b);
+		System.out.println("Kids participants - " + c);
+		System.out.println("-----------------------------------------------");
+		System.out.println("Total : " + d + " participants");
+		System.out.println("");
+		
+		double[]feesCollected = new double[] {a1,b1,c1};
+		String[]category = new String[] {"Female","Male","Kids"};
+		
+		System.out.println("The amount of fees collected from each category : ");
+		for(int i=0; i<feesCollected.length; i++) {
+			System.out.println(category[i] + " : "+"RM " + feesCollected[i]);
+			}
+			
+		System.out.println("");
+		System.out.println("The extra donations from MINI salon is RM " + d1);
+		System.out.println("In total, the fees that pass to NCSM is RM " + sum);
+		System.out.println("");
+		
+		System.out.println("Please enter the amount of cash payment received: ");
+		cash = sc.nextDouble();
+		System.out.println("Please enter the amount of online payment received: ");
+		online = sc.nextDouble();
+		
+		System.out.println("From the total amount of fees collected, ");
+		System.out.println("the cash payment collected is RM " + cash);
+		System.out.println("while the online payment collected is RM " + online);
+		System.out.println("");
+		
+		Arrays.sort(feesCollected);
+		System.out.println("The largest amount of fees collected is : ");
+		System.out.println("Female participants = RM " +feesCollected[feesCollected.length-1]);
+		
+		System.out.println("The smallest amount of fees collected is : ");
+		System.out.println("Kids participants = RM" +feesCollected[0]);
+		
+		System.out.println("");
+		System.out.println("**********************************************************************************************************************************************");
+		System.out.println("******************************************************************END*************************************************************************");
+		System.out.println("**********************************************************************************************************************************************");
+	
+	}
+	
+}
+
+Output:
+National Cancer Society Malaysia (NCSM) had organized a campaign recently
+
+This campaign is to raise public awareness on the prevention, screening and early detection of cancer through education and raising funds for the patients.
+MINI salon had organized this hair donation event to support the campaign organized by NCSM and to help patients that are suffering from cancer!
+
+The public is welcome to take part in this event to show us your support!
+
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+If you are interested to join our event, please enter 1
+If you are not interested, please enter 2.
+Are you interested to join?
+1
+
+Thanks for your participation!
+
+You have to fill in your details for the registration purpose in this event.
+
+1. Please enter your name: 
+Jenny Cheah
+2. Please enter your NRIC: 
+000422-08-0202
+3. Please enter your contact number: 
+012-3456789
+4. Please enter your age: 
+22
+5. Please enter your gender: 
+female
+=========================================================================
+=========================PERSONAL DETAILS================================
+=========================================================================
+Name 	       : Jenny Cheah
+NRIC 	       : 000422-08-0202
+Contact number : 012-3456789
+Age            : 22
+Gender 	       : female
+=========================================================================
+=========================================================================
+
+For your information, 
+We will collect an amount of fees from participant according to their category in order to raise fund for the patient in need.
+For each participant, the event organizer, MINI salon will donate extra RM 5 to NCSM to support their campaign.
+
+Hi, Miss/Mrs Jenny Cheah. Your fee is RM 10.
+Please select your payment method: 
+1 - cash payment 
+2 - online transfer payment
+2
+You have selected the online transfer payment method!
+
+The details of the receiver bank account are as below: 
+
+		     Maybank						   
+                    MINI salon                         
+                   173678460739                        
+  Please type on the reference with "Hair Donation"  
+
+Thanks for your support!
+
+**********************************************************************************************************************************************
+**************************************************************SEAT ALLOCATION*****************************************************************
+**********************************************************************************************************************************************
+Your seat is available!
+Please move to seat 8
+
+Your seat is available!
+Please move to seat 7
+
+Your seat is available!
+Please move to seat 6
+
+Your seat is available!
+Please move to seat 5
+
+Your seat is available!
+Please move to seat 4
+
+Your seat is available!
+Please move to seat 3
+
+Your seat is available!
+Please move to seat 2
+
+Your seat is available!
+Please move to seat 1
+
+Sorry to inform you that the seats are currently full, please be patient and wait for a while!
+Thanks for your understanding and sorry for the inconvenience caused!
+
+**********************************************************************************************************************************************
+**************************************************************CALCULATION*********************************************************************
+**********************************************************************************************************************************************
+The number of participant are: 
+Female participants - 37
+Male participants - 25
+Kids participants - 11
+-----------------------------------------------
+Total : 73 participants
+
+The amount of fees collected from each category : 
+Female : RM 370.0
+Male : RM 175.0
+Kids : RM 55.0
+
+The extra donations from MINI salon is RM 365.0
+In total, the fees that pass to NCSM is RM 965.0
+
+Please enter the amount of cash payment received: 
+371
+Please enter the amount of online payment received: 
+594
+From the total amount of fees collected, 
+the cash payment collected is RM 371.0
+while the online payment collected is RM 594.0
+
+The largest amount of fees collected is : 
+Female participants = RM 370.0
+The smallest amount of fees collected is : 
+Kids participants = RM55.0
+
+**********************************************************************************************************************************************
+******************************************************************END*************************************************************************
+**********************************************************************************************************************************************
