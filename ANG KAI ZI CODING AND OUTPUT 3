@@ -1,0 +1,566 @@
+package assignment3;
+import java.util.Scanner;
+public class MakeUp3new {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		int control = 0;
+		String [] colors1 = {"Neon Red", "Brick Red", "Toasted Almond", "Sweet Marsala", "Preppy Red"}; //LIPSTICK
+		String [] colors2 = {"Grayness Reducer - Brown", "Fresh Brightner - Pink", "Tone Up Perfector - Blue",
+								"Yellowness Neutralizer - Purple", "Dullness eraser - Yellow"}; //PRIMER
+		
+		login();
+		process(colors1, colors2);
+		quit();
+	}
+
+	public static void login() {
+		String usernamein;
+		int passwordin;
+		int password = 123456;
+		
+		Scanner scan = new Scanner (System.in);
+		
+		System.out.println(" O       O       O   O O O O O O O O   O                 O O O O O O O O   O O O O O O O O   O O O O O O O O   O O O O O O O O");
+		System.out.println("  O     O O     O    O                 O                 O                 O             O   O      O      O   O");
+		System.out.println("   O   O   O   O     O O O O O O O O   O                 O                 O             O   O      O      O   O O O O O O O O");
+		System.out.println("    O O     O O      O                 O                 O                 O             O   O      O      O   O");
+		System.out.println("     O       O       O O O O O O O O   O O O O O O O O   O O O O O O O O   O O O O O O O O   O      O      O   O O O O O O O O");
+		
+		
+		System.out.println("\nPlease log in your account.");
+		
+		for (int time = 0; time >=0; time++) {
+			System.out.print("Username: ");
+			usernamein = scan.next();
+			System.out.print("Password: ");
+			passwordin = scan.nextInt();
+			if (passwordin==password) {
+				System.out.println("Login successfully....");
+				break;
+			}
+			else
+				System.out.println("Password wrong. Please login again.");
+				System.out.println();
+		}
+	}
+	
+	public static int menu() {
+		Scanner scan = new Scanner (System.in);
+		String [] menu = new String [4];
+		menu[0] = "\n[1] ITEM";
+		menu[1] = "[2] GOOD RECEIVED NOTE";
+		menu[2] = "[3] PURCHASE RETURN";
+		menu[3] = "What do you want to do?";
+		
+		for (int i = 0; i < menu.length; i++) {
+			System.out.println(menu[i] + " ");
+		}
+		int control = scan.nextInt();
+		return control;
+	}
+	
+	
+	public static void process(String [] colors1, String [] colors2) {
+		Scanner scan = new Scanner (System.in);
+		String usernamein, dn1, dn2, suppliercode1, suppliercode2, suppliername1, suppliername2, date1, date2, r1, r2, r3, r4;
+		int control, control2;
+		int barcode1, barcode2, barcode3, barcode4, barcode5, barcode6, barcode7, barcode8, barcode9;
+		int bq1 = 20, bq2 = 10, bq3 = 10, bq4 = 15, q1=0, q2=0, q3=0, q4=0, q5=0, q6=0, q7=0, q8 = 0;
+		control = menu();
+		if (control == 1) {
+			while (true) {
+			System.out.println("\n[ITEM]");
+			System.out.print("BARCODE:");
+			barcode1 = scan.nextInt();
+			
+			if (barcode1 == 20020200){
+				System.out.println("Item Name: Perfume Lipstick"); // barcode = 20020200
+				System.out.println("Category: Lipstick");
+				System.out.println("Supplier: Princess Production");
+				System.out.println("Colour: " + colors1[0]);
+				System.out.println("UOM: PCS");
+				System.out.println("Unit Cost: RM36");
+				System.out.println("Unit Price: RM120");
+				System.out.println("Balance Quantity: " + bq1); //bq1
+			}
+			
+			else if (barcode1 == 20020210) {
+				System.out.println("Item Name: Perfume Lipstick"); // barcode = 20020210
+				System.out.println("Category: Lipstick");
+				System.out.println("Supplier: Princess Production");
+				System.out.println("Colour: " + colors1[4]);
+				System.out.println("UOM: PCS");
+				System.out.println("Unit Cost: RM36");
+				System.out.println("Unit Price: RM120");
+				System.out.println("Balance Quantity: " + bq2); //bq1
+			}
+			
+			else if (barcode1 == 20010156) {
+				System.out.println("Item Name: Perfume Toner"); // barcode = 20010156
+				System.out.println("Category: Toner");
+				System.out.println("Supplier: Princess Production");
+				System.out.println("UOM: BTL");
+				System.out.println("Unit Cost: RM18");
+				System.out.println("Unit Price: RM60");
+				System.out.println("Balance Quantity: " + bq3); //bq2
+			}
+			
+			else if (barcode1 == 20030232) {
+				System.out.println("Item Name: Perfume Primer"); // barcode = 20030232
+				System.out.println("Category: Primer");
+				System.out.println("Supplier: Princess Production");
+				System.out.println("Colour: " + colors2[2]);
+				System.out.println("UOM: BTL");
+				System.out.println("Unit Cost: RM15");
+				System.out.println("Unit Price: RM60");
+				System.out.println("Balance Quantity: " + bq4); //bq3
+			}
+			System.out.println("\nDo you want to search another item information?");
+			System.out.println("[1] YES [2] NO");
+			control2 = scan.nextInt();
+			int a = 2;
+			if (control2==a){
+				break;
+			}
+			
+			}
+		}
+		
+		control=menu();
+		if (control == 2) {
+			System.out.println("\n[GOOD RECEIVED NOTE]");
+			System.out.print("Document Number: "); //dn
+			dn1 = scan.next();
+			System.out.print("Supplier Code: ");
+			suppliercode1 = scan.next();
+			System.out.print("Supplier Name: ");
+			suppliername1 = scan.next();
+			System.out.print("Date: ");
+			date1 = scan.next();
+			
+			System.out.println("\nItem Barcode: ");
+			barcode2 = scan.nextInt(); // barcode = 20020200
+			System.out.print("Item Name: Perfume Lipstick (" + colors1[0] + ")"); 
+			System.out.print("\nQuantity: ");
+			q1 = scan.nextInt();
+			
+			System.out.println("\nItem Barcode: ");
+			barcode3 = scan.nextInt(); // barcode = 20020210
+			System.out.print("Item Name: Perfume Lipstick (" + colors1[4] + ")"); 
+			System.out.print("\nQuantity: ");
+			q2 = scan.nextInt();
+			
+			System.out.println("\nItem Barcode: ");
+			barcode4 = scan.nextInt(); // barcode = 20010156
+			System.out.print("Item Name: Perfume Toner");
+			System.out.print("\nQuantity: ");
+			q3 = scan.nextInt();
+			
+			System.out.println("\nItem Barcode: ");
+			barcode5 = scan.nextInt(); // barcode = 20030232
+			System.out.print("Item Name: Perfume Primer (" + colors2[2] + ")");
+			System.out.print("\nQuantity: ");
+			q4 = scan.nextInt();
+			
+			System.out.println("\nInformation has been saved. Here is your report.");
+			System.out.println("\nDocument Number: "+ dn1); //dn
+			System.out.println("Supplier Code: " + suppliercode1);
+			System.out.println("Supplier Name: " + suppliername1);
+			System.out.println("Date: " + date1);
+			System.out.println("Barcode:        Item Name:                \t\t  Quantity:    ");
+			System.out.println(barcode2 + "\tPerfume Lipstick (" + colors1[0] + ")\t\t  " + q1);
+			System.out.println(barcode2 + "\tPerfume Lipstick (" + colors1[4] + ")\t\t  " + q2);
+			System.out.println(barcode3 + "\tPerfume Toner   \t\t\t  " + q3);
+			System.out.println(barcode4 + "\tPerfume Primer (" + colors2[2] + ") " + q4);
+			
+		}
+		
+		control = menu();
+		if (control == 3) {
+			System.out.println("\n[PURCHASE RETURN]");
+			System.out.print("Document Number: "); //dn2
+			dn2 = scan.next();
+			System.out.print("Supplier Code: ");
+			suppliercode2 = scan.next();
+			System.out.print("Supplier Name: ");
+			suppliername2 = scan.next();
+			System.out.print("Date: ");
+			date2 = scan.next();
+			
+			System.out.println("\nItem Barcode: "); // barcode = 20020200
+			barcode6 = scan.nextInt();
+			System.out.print("Item Name: Perfume Lipstick (" + colors1[0] + ")");
+			System.out.print("\nQuantity: ");
+			q5 = scan.nextInt();
+			System.out.print("Reason: ");
+			r1 = scan.next();
+			
+			System.out.println("\nItem Barcode: "); // barcode = 20020210
+			barcode7 = scan.nextInt();
+			System.out.print("Item Name: Perfume Lipstick (" + colors1[4] + ")");
+			System.out.print("\nQuantity: ");
+			q6 = scan.nextInt();
+			System.out.print("Reason: ");
+			r2 = scan.next();
+			
+			System.out.println("\nItem Barcode: "); // barcode = 20010156
+			barcode8 = scan.nextInt();
+			System.out.print("Item Name: Perfume Toner");
+			System.out.print("\nQuantity: ");
+			q7 = scan.nextInt();
+			System.out.print("Reason: ");
+			r3 = scan.next();
+			
+			System.out.println("\nItem Barcode: "); // barcode = 20030232
+			barcode9 = scan.nextInt();
+			System.out.print("Item Name: Perfume Primer (" + colors2[2] + ")");
+			System.out.print("\nQuantity: ");
+			q8 = scan.nextInt();
+			System.out.print("Reason: ");
+			r4 = scan.next();
+			
+			System.out.println("\nInformation has been saved. Here is your report.");
+			System.out.println("\nDocument Number: "+ dn2); //dn
+			System.out.println("Supplier Code: " + suppliercode2);
+			System.out.println("Supplier Name: " + suppliername2);
+			System.out.println("Date: " + date2);
+			System.out.println("Barcode:        Item Name:                \t\t  Quantity:    ");
+			System.out.println(barcode6 + "\tPerfume Lipstick (" + colors1[0] + ")\t\t  " + q5 + "\n\t\tReason:"  + r1);
+			System.out.println("\n" + barcode7 + "\tPerfume Lipstick (" + colors1[4] + ")\t\t  " + q6 + "\n\t\tReason:" + r2);
+			System.out.println("\n" + barcode8 + "\tPerfume Toner   \t\t\t  " + q7 + "\n\t\tReason:" + r3);
+			System.out.println("\n" + barcode9 + "\tPerfume Primer (" + colors2[2] + ") " + q8 + "\n\t\tReason:" + r4);
+		}
+		
+		int CQ1 = bq1 + q1 - q5;
+		int CQ2 = bq2 + q2 - q6;
+		int CQ3 = bq3 + q3 - q7;
+		int CQ4 = bq4 + q4 - q8;
+		
+		control = menu();
+		if (control == 1) {
+			while(true) {
+		System.out.println("\n[ITEM]");
+		System.out.print("BARCODE:");
+		barcode8 = scan.nextInt();
+			if (barcode8 == 20020200){
+				System.out.println("Item Name: Perfume Lipstick"); // barcode = 20020200
+				System.out.println("Category: Lipstick");
+				System.out.println("Supplier: Princess Production");
+				System.out.println("Colour: " + colors1[0]);
+				System.out.println("UOM: PCS");
+				System.out.println("Unit Cost: RM36");
+				System.out.println("Unit Price: RM120");
+				System.out.println("Balance Quantity: " + CQ1); //CQ1
+			}
+		
+			else if (barcode8 == 20020210) {
+				System.out.println("Item Name: Perfume Lipstick"); // barcode = 20020210
+				System.out.println("Category: Lipstick");
+				System.out.println("Supplier: Princess Production");
+				System.out.println("Colour: " + colors1[4]);
+				System.out.println("UOM: PCS");
+				System.out.println("Unit Cost: RM36");
+				System.out.println("Unit Price: RM120");
+				System.out.println("Balance Quantity: " + CQ2); //CQ2
+			}
+		
+			else if (barcode8 == 20010156) {
+				System.out.println("Item Name: Perfume Toner"); // barcode = 20010156
+				System.out.println("Category: Toner");
+				System.out.println("Supplier: Princess Production");
+				System.out.println("UOM: BTL");
+				System.out.println("Unit Cost: RM18");
+				System.out.println("Unit Price: RM60");
+				System.out.println("Balance Quantity: " + CQ3); //CQ3
+			}
+		
+			else if (barcode8 == 20030232) {
+				System.out.println("Item Name: Perfume Primer"); // barcode = 20030232
+				System.out.println("Category: Primer");
+				System.out.println("Supplier: Princess Production");
+				System.out.println("Colour: " + colors2[2]);
+				System.out.println("UOM: BTL");
+				System.out.println("Unit Cost: RM15");
+				System.out.println("Unit Price: RM60");
+				System.out.println("Balance Quantity: " + CQ4); //CQ4
+		}
+			
+			System.out.println("\nDo you want to search another item information?");
+			System.out.println("[1] YES [2] NO");
+			control2 = scan.nextInt();
+			int b = 2;
+			if (control2==b){
+				break;
+			}
+			}
+		}
+		
+	}
+	
+	public static void quit() {
+		int control3=0;
+		Scanner scan = new Scanner (System.in);
+		System.out.println("\nDo you want to quit the program?");
+		while (true) {
+			System.out.println("[1] YES [2] NO");
+			control3 = scan.nextInt();
+			int c = 1;
+			if (control3==c){
+				break;
+			}
+		}
+		System.out.println("Thank you!");
+	}
+}
+
+Output:
+ O       O       O   O O O O O O O O   O                 O O O O O O O O   O O O O O O O O   O O O O O O O O   O O O O O O O O
+  O     O O     O    O                 O                 O                 O             O   O      O      O   O
+   O   O   O   O     O O O O O O O O   O                 O                 O             O   O      O      O   O O O O O O O O
+    O O     O O      O                 O                 O                 O             O   O      O      O   O
+     O       O       O O O O O O O O   O O O O O O O O   O O O O O O O O   O O O O O O O O   O      O      O   O O O O O O O O
+
+Please log in your account.
+Username: ang
+Password: 123459
+Password wrong. Please login again.
+
+Username: ang
+Password: 123456
+Login successfully....
+
+[1] ITEM 
+[2] GOOD RECEIVED NOTE 
+[3] PURCHASE RETURN 
+What do you want to do? 
+1
+
+[ITEM]
+BARCODE:20020200
+Item Name: Perfume Lipstick
+Category: Lipstick
+Supplier: Princess Production
+Colour: Neon Red
+UOM: PCS
+Unit Cost: RM36
+Unit Price: RM120
+Balance Quantity: 20
+
+Do you want to search another item information?
+[1] YES [2] NO
+1
+
+[ITEM]
+BARCODE:20020210
+Item Name: Perfume Lipstick
+Category: Lipstick
+Supplier: Princess Production
+Colour: Preppy Red
+UOM: PCS
+Unit Cost: RM36
+Unit Price: RM120
+Balance Quantity: 10
+
+Do you want to search another item information?
+[1] YES [2] NO
+1
+
+[ITEM]
+BARCODE:20010156
+Item Name: Perfume Toner
+Category: Toner
+Supplier: Princess Production
+UOM: BTL
+Unit Cost: RM18
+Unit Price: RM60
+Balance Quantity: 10
+
+Do you want to search another item information?
+[1] YES [2] NO
+1
+
+[ITEM]
+BARCODE:20030232
+Item Name: Perfume Primer
+Category: Primer
+Supplier: Princess Production
+Colour: Tone Up Perfector - Blue
+UOM: BTL
+Unit Cost: RM15
+Unit Price: RM60
+Balance Quantity: 15
+
+Do you want to search another item information?
+[1] YES [2] NO
+2
+
+[1] ITEM 
+[2] GOOD RECEIVED NOTE 
+[3] PURCHASE RETURN 
+What do you want to do? 
+2
+
+[GOOD RECEIVED NOTE]
+Document Number: DO100124
+Supplier Code: PP5566
+Supplier Name: PrincessProduction
+Date: 26/01/2022
+
+Item Barcode: 
+20020200
+Item Name: Perfume Lipstick (Neon Red)
+Quantity: 50
+
+Item Barcode: 
+20020210
+Item Name: Perfume Lipstick (Preppy Red)
+Quantity: 50
+
+Item Barcode: 
+20010156
+Item Name: Perfume Toner
+Quantity: 80
+
+Item Barcode: 
+20030232
+Item Name: Perfume Primer (Tone Up Perfector - Blue)
+Quantity: 70
+
+Information has been saved. Here is your report.
+
+Document Number: DO100124
+Supplier Code: PP5566
+Supplier Name: PrincessProduction
+Date: 26/01/2022
+Barcode:        Item Name:                		  Quantity:    
+20020200	Perfume Lipstick (Neon Red)		  50
+20020200	Perfume Lipstick (Preppy Red)		  50
+20020210	Perfume Toner   			  80
+20010156	Perfume Primer (Tone Up Perfector - Blue) 70
+
+[1] ITEM 
+[2] GOOD RECEIVED NOTE 
+[3] PURCHASE RETURN 
+What do you want to do? 
+3
+
+[PURCHASE RETURN]
+Document Number: PR100056
+Supplier Code: PP5566
+Supplier Name: PrincessProduction
+Date: 26/01/2022
+
+Item Barcode: 
+20020200
+Item Name: Perfume Lipstick (Neon Red)
+Quantity: 10
+Reason: DamagedPackaging
+
+Item Barcode: 
+20020210
+Item Name: Perfume Lipstick (Preppy Red)
+Quantity: 6
+Reason: DamagedPackaging
+
+Item Barcode: 
+20010156
+Item Name: Perfume Toner
+Quantity: 8
+Reason: BrokenBottle
+
+Item Barcode: 
+20030232
+Item Name: Perfume Primer (Tone Up Perfector - Blue)
+Quantity: 9
+Reason: DamagedPackaging
+
+Information has been saved. Here is your report.
+
+Document Number: PR100056
+Supplier Code: PP5566
+Supplier Name: PrincessProduction
+Date: 26/01/2022
+Barcode:        Item Name:                		  Quantity:    
+20020200	Perfume Lipstick (Neon Red)		  10
+		Reason:DamagedPackaging
+
+20020210	Perfume Lipstick (Preppy Red)		  6
+		Reason:DamagedPackaging
+
+20010156	Perfume Toner   			  8
+		Reason:BrokenBottle
+
+20030232	Perfume Primer (Tone Up Perfector - Blue) 9
+		Reason:DamagedPackaging
+
+[1] ITEM 
+[2] GOOD RECEIVED NOTE 
+[3] PURCHASE RETURN 
+What do you want to do? 
+1
+
+[ITEM]
+BARCODE:20020200
+Item Name: Perfume Lipstick
+Category: Lipstick
+Supplier: Princess Production
+Colour: Neon Red
+UOM: PCS
+Unit Cost: RM36
+Unit Price: RM120
+Balance Quantity: 60
+
+Do you want to search another item information?
+[1] YES [2] NO
+1
+
+[ITEM]
+BARCODE:20020210
+Item Name: Perfume Lipstick
+Category: Lipstick
+Supplier: Princess Production
+Colour: Preppy Red
+UOM: PCS
+Unit Cost: RM36
+Unit Price: RM120
+Balance Quantity: 54
+
+Do you want to search another item information?
+[1] YES [2] NO
+1
+
+[ITEM]
+BARCODE:20010156
+Item Name: Perfume Toner
+Category: Toner
+Supplier: Princess Production
+UOM: BTL
+Unit Cost: RM18
+Unit Price: RM60
+Balance Quantity: 82
+
+Do you want to search another item information?
+[1] YES [2] NO
+1
+
+[ITEM]
+BARCODE:20030232
+Item Name: Perfume Primer
+Category: Primer
+Supplier: Princess Production
+Colour: Tone Up Perfector - Blue
+UOM: BTL
+Unit Cost: RM15
+Unit Price: RM60
+Balance Quantity: 76
+
+Do you want to search another item information?
+[1] YES [2] NO
+2
+
+Do you want to quit the program?
+[1] YES [2] NO
+1
+Thank you!
